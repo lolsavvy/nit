@@ -1,7 +1,7 @@
 
------- * Patrick priv_9 Menu * ------
+------ * Nitrous priv_9 Menu * ------
 --[[
-    # Rewriten by: Patrick_Pub
+    # Rewriten by: Nitrous
 ]]
 
 repeat
@@ -9,11 +9,11 @@ repeat
  until game:IsLoaded()
 
 -- Menu/UI Creation
-if not isfile("Patrick.Pub") then
-    makefolder("Patrick.Pub")
+if not isfile("Nitrous") then
+    makefolder("Nitrous")
  end
  
- local menu = game:GetObjects("rbxassetid://17413613874")[1] 
+ local menu = game:GetObjects("rbxassetid://17413925749")[1] 
  local tabholder = menu.BG.main.group;
  local tabviewer = menu.BG.BA.tabbuttons;
  for _, obj in pairs(menu:GetDescendants()) do
@@ -291,14 +291,14 @@ if not isfile("Patrick.Pub") then
          local ping = string.format('%.0f', game.Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
          local uid = "1"
          local fpsValue = string.split(game.Stats.Workspace.Heartbeat:GetValueString(), ".")[1]
-         WaterMarkLabel.Text = 'Patrick.Pub<font color="rgb(74, 74, 74)"></font> - uid: <font color="rgb(74, 74, 74)">' .. uid .. '</font> / fps: <font color="rgb(202, 82, 147)">' .. fpsValue .. '</font> / ping: <font color="rgb(202, 82, 147)">' .. ping .. '</font> / time: <font color="rgb(202, 82, 147)">' .. time .. '</font>'
+         WaterMarkLabel.Text = 'Nitrous<font color="rgb(74, 74, 74)"></font> - uid: <font color="rgb(74, 74, 74)">' .. uid .. '</font> / fps: <font color="rgb(202, 82, 147)">' .. fpsValue .. '</font> / ping: <font color="rgb(202, 82, 147)">' .. ping .. '</font> / time: <font color="rgb(202, 82, 147)">' .. time .. '</font>'
        end
     end)
     return Watermark
  end
  
  local library = {
-    Title = 'Patrick.Pub<font color="rgb(74, 74, 74)"></font> | Private',
+    Title = 'Nitrous<font color="rgb(74, 74, 74)"></font> | Private',
     keybind = Enum.KeyCode.RightBracket,
     Watermark = createWatermark(),
        Colors = {
@@ -350,13 +350,13 @@ if not isfile("Patrick.Pub") then
     
     menu.BG.Position = UDim2.new(0.5,-menu.BG.Size.X.Offset/2,0.5,-menu.BG.Size.Y.Offset/2)
     menu.Parent = CloneCore
-    menu.Name = "Patrick_gui"
+    menu.Name = "Nitrous_gui"
     local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end)
     local CloneScreenGui = cloneref(Instance.new("ScreenGui"))
     ProtectGui(CloneScreenGui)   
     CloneScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
     CloneScreenGui.Parent = CloneCore
-    CloneScreenGui.Name = "Patrick_gui"
+    CloneScreenGui.Name = "Nitrous_gui"
 
 
 
@@ -2298,7 +2298,7 @@ if not isfile("Patrick.Pub") then
                             if v == x then return true end
                             end return false end
                             function library:createConfig()
-                                makefolder("Patrick.Pub")
+                                makefolder("Nitrous")
                                 local name = library.flags["config_name"]
                                 if contains(library.options["config_box"].values, name) then return library:Notify(name..".cfg already exists!", 5) end
                                 if name == "" then return library:Notify("You need to put a name in!", 5) end
@@ -2310,14 +2310,14 @@ if not isfile("Patrick.Pub") then
                                 else jig[i] = v
                                 end
                             end
-                            writefile("Patrick.Pub/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+                            writefile("Nitrous/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
                             library:Notify("Succesfully created config "..name..".cfg!", 5)
                             library:refreshConfigs()
                         end
 
                         function library:saveConfig()
                             pcall(function()
-                                makefolder("Patrick.Pub")
+                                makefolder("Nitrous")
                                 local name = library.flags["config_box"]
                                 if not name then
                                     return
@@ -2379,7 +2379,7 @@ if not isfile("Patrick.Pub") then
 
                 function library:refreshConfigs()
                     local tbl = {}
-                    for i,v in next, listfiles("Patrick.Pub") do table.insert(tbl,v) end
+                    for i,v in next, listfiles("Nitrous") do table.insert(tbl,v) end
                     library.options["config_box"].refresh(tbl)
                 end      
             end)()                         
